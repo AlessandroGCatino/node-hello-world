@@ -11,7 +11,7 @@ const server = http.createServer((req, res) => {
         return;
     }
     res.writeHead(200, {"Content-Type" : "text/html"});
-    res.end("<h1> Benvenuto </h1>")
+    res.end(`<h1> ${process.env.RESPONSE} </h1>`)
 })
 
 server.listen(port, host, ()=>{
