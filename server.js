@@ -5,11 +5,6 @@ const host = "localhost";
 
 // BONUS
 
-function randNumber(min, max){
-
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-
-}
 const frasiMotivazionali = [
     "Non smettere mai di credere in te stesso.",
     "Ogni giorno e' una nuova opportunita' per migliorare.",
@@ -23,6 +18,16 @@ const frasiMotivazionali = [
     "Il fallimento e' il primo passo verso il successo."
 ];
 
+function randNumber(min, max){
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randPhrase(){
+    return frasiMotivazionali[randNumber(0,9)]
+}
+
+
+
 //BASE
 
 const server = http.createServer((req, res) => {
@@ -35,7 +40,7 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, {"Content-Type" : "text/html"});
     res.end(`
         <h2> ${process.env.RESPONSE} </h2>
-        <h1> ${frasiMotivazionali[randNumber(0,9)]} </h1>
+        <h1> ${randPhrase()} </h1>
     `)
 })
 
