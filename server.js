@@ -23,7 +23,7 @@ function randNumber(min, max){
 }
 
 function randPhrase(){
-    return frasiMotivazionali[randNumber(0,9)]
+    return frasiMotivazionali[randNumber(0,frasiMotivazionali.length-1)]
 }
 
 
